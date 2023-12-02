@@ -1,6 +1,6 @@
 import sqlite3
 
-def create_users_table(db_file):
+def create_tables(db_file):
     try:
         # Connect to the SQLite database
         conn = sqlite3.connect(db_file)
@@ -8,7 +8,7 @@ def create_users_table(db_file):
 
         # Create the USA table
         cursor.execute('''
-             CREATE TABLE USA (
+             CREATE TABLE CANADA (
                 CancerSite TEXT PRIMARY KEY,
                 AgeGroup0_5 REAL,
                 AgeGroup5_10 REAL,
@@ -30,9 +30,9 @@ def create_users_table(db_file):
             )                 
         ''')
 
-        # Create the GERMANY table
+        # Create the SUIS table
         cursor.execute('''
-             CREATE TABLE GERMANY (
+             CREATE TABLE SUIS (
                 CancerSite TEXT PRIMARY KEY,
                 AgeGroup0_5 REAL,
                 AgeGroup5_10 REAL,
@@ -53,10 +53,11 @@ def create_users_table(db_file):
                 AgeGroup80_85 REAL  
             )                 
         ''')
+
 
         # Commit the changes (creating the table)
         conn.commit()
-        print("Table 'users' created successfully.")
+        print("Tables created successfully.")
 
     except sqlite3.Error as e:
         print("SQLite error:", e)
@@ -67,7 +68,7 @@ def create_users_table(db_file):
             conn.close()
 
 # Specify the name of your SQLite database file
-db_file = "/root/dataviz/visualization_project/database.db"
+db_file = "/root/dataviz/dataviz_project/db/database.db"
 
 # Call the function to create the 'users' table
-create_users_table(db_file)
+create_tables(db_file)

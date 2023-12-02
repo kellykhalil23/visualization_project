@@ -14,11 +14,10 @@ def load_csv_data(database_path, csv_file_path):
 
         for row in csv_reader:
             
-            # Insert data into the 'USA' table
-            # Insert data into the 'USA' table
-            # Insert data into the 'USA' table
+          
+            # Insert data into the  table
             cursor.execute('''
-                INSERT INTO GERMANY (CancerSite, AgeGroup0_5, AgeGroup5_10, AgeGroup10_15,
+                INSERT INTO SUIS (CancerSite, AgeGroup0_5, AgeGroup5_10, AgeGroup10_15,
                                 AgeGroup15_20, AgeGroup20_25, AgeGroup25_30, AgeGroup30_35,
                                 AgeGroup35_40, AgeGroup40_45, AgeGroup45_50, AgeGroup50_55,
                                 AgeGroup55_60, AgeGroup60_65, AgeGroup65_70, AgeGroup70_75,
@@ -35,7 +34,7 @@ def load_csv_data(database_path, csv_file_path):
 
 # Example usage:
 database_path = 'database.db'
-csv_file_path = '/root/dataviz/dataviz_project/data/germany.csv'  # Replace with the actual path to your CSV file
+csv_file_path = '/root/dataviz/dataviz_project/data/SUIS.csv'  # Replace with the actual path to your CSV file
 
 
 # Call load_csv_data to insert data from the CSV file
