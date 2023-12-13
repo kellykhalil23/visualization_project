@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, jsonify
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
@@ -79,7 +79,44 @@ def index():
     germany_data = GERMANY.query.all()
     canada_data = CANADA.query.all()
     suis_data = SUIS.query.all()
-    return render_template('index.html', germany_data=germany_data, canada_data=canada_data, suis_data=suis_data)
+    return render_template('index.html', germany_data=germany_data)
+
+
+@app.route('/germany')
+def germany():
+    germany_data = GERMANY.query.all()
+
+    print(germany_data)
+
+    # Assuming germany_data is a list of GERMANY model instances
+    data_list = [
+        {
+            "CancerSite": entry.CancerSite,
+            "AgeGroup0_5": entry.AgeGroup0_5,
+            "AgeGroup5_10": entry.AgeGroup5_10,
+            "AgeGroup10_15": entry.AgeGroup10_15,
+            "AgeGroup15_20": entry.AgeGroup15_20,
+            "AgeGroup20_25": entry.AgeGroup20_25,
+            "AgeGroup25_30": entry.AgeGroup25_30,
+            "AgeGroup30_35": entry.AgeGroup30_35,
+            "AgeGroup35_40": entry.AgeGroup35_40,
+            "AgeGroup40_45": entry.AgeGroup40_45,
+            "AgeGroup45_50": entry.AgeGroup45_50,
+            "AgeGroup50_55": entry.AgeGroup50_55,
+            "AgeGroup55_60": entry.AgeGroup55_60,
+            "AgeGroup60_65": entry.AgeGroup60_65,
+            "AgeGroup65_70": entry.AgeGroup65_70,
+            "AgeGroup70_75": entry.AgeGroup70_75,
+            "AgeGroup75_80": entry.AgeGroup75_80,
+            "AgeGroup80_85": entry.AgeGroup80_85,
+            # Add other age groups as needed
+        }
+        for entry in germany_data
+    ]
+
+
+    
+    return jsonify(data_list)
 
 
 
