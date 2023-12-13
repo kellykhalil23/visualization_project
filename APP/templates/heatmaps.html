@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Germany Data Form</title>
+
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <style>
+        /* Add some styling to the heatmap */
+        rect {
+            stroke: #fff;
+        }
+    </style>
+</head>
+<body>
+
+
+
+<div class="container mt-5" id="form">
+    <h1 class="mb-4">Germany Data Form</h1>
+
+    <!-- Button to trigger the request -->
+    <button class="btn btn-primary" onclick="getGermanyData()">Get Germany Data</button>
+
+    <!-- Display area for the JSON data -->
+    <div id="germanyDataDisplay" class="mt-4"></div>
+</div>
+
+<div id="dataviz"></div>
+
+<!-- Bootstrap JS and Popper.js CDN (needed for Bootstrap features) -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script>
+// Function to make an asynchronous request to the /germany route
+function getGermanyData() {
+    // Make a fetch request to the /germany route
+    fetch('/germany')
+        .then(response => response.json())  // Parse the JSON response
+        .then(data => {
+            // Call heatmap function with the fetched data
+            drawHeatmap(data);
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            // Display an error message if the request fails
+            document.getElementById('germanyDataDisplay').innerHTML = '<p class="text-danger">Error fetching Germany data.</p>';
+        });
+}
+
+
+
+function drawHeatmap(data) {
+    // Set the dimensions of the canvas
+    d3.select("#dataviz").select("svg").remove();
+
+    var margin = { top: 20, right: 30, bottom: 30, left: 50 },
+        width = 800 - margin.left - margin.right,
+        height = 600 - margin.top - margin.bottom;
+
+    // Append the heatmap to the dataviz div
+    var datavizDiv = d3.select("#dataviz");
+
+    // Append the SVG object to the div
+    var svg = datavizDiv.append("svg")
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom)
+        .append("g")
+        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+    // Labels of row and columns
+    var myGroups = Object.keys(data[0]).filter(key => key !== "CancerSite");
+    var myVars = data.map(d => d.CancerSite);
+
+    // Create scales
+    var x = d3.scaleBand()
+        .domain(myGroups)
+        .range([0, width]);
+
+    var y = d3.scaleBand()
+        .domain(myVars)
+        .range([height, 0]);
+
+    var color = d3.scaleSequential()
+        .interpolator(d3.interpolateGreens)  // Adjust the color scale as needed
+        .domain([0, d3.max(data, d => d3.max(myGroups, g => d[g]))]);
+
+    // Add X and Y axes
+    svg.append("g")
+        .attr("transform", "translate(0," + height + ")")
+        .call(d3.axisBottom(x));
+
+    svg.append("g")
+        .call(d3.axisLeft(y));
+
+    // Add the squares
+    svg.selectAll()
+        .data(data)
+        .enter()
+        .append("g")
+        .selectAll("rect")
+        .data(d => myGroups.map(key => ({ key, value: d[key] })))
+        .enter()
+        .append("rect")
+        .attr("x", d => x(d.key))
+        .attr("y", d => y(d.value))
+        .attr("width", x.bandwidth())
+        .attr("height", y.bandwidth())
+        .style("fill", d => color(d.value));
+}
+
+       
+</script>
+
+</body>
+</html>

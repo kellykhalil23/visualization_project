@@ -77,16 +77,18 @@ class SUIS(db.Model):
 @app.route('/')
 def index():
     germany_data = GERMANY.query.all()
-    canada_data = CANADA.query.all()
-    suis_data = SUIS.query.all()
     return render_template('index.html', germany_data=germany_data)
+
+@app.route('/heatmaps')
+def heatmaps():
+    return render_template('heatmaps.html')
 
 
 @app.route('/germany')
 def germany():
     germany_data = GERMANY.query.all()
 
-    print(germany_data)
+    
 
     # Assuming germany_data is a list of GERMANY model instances
     data_list = [
@@ -114,7 +116,7 @@ def germany():
         for entry in germany_data
     ]
 
-
+    print(data_list)
     
     return jsonify(data_list)
 
