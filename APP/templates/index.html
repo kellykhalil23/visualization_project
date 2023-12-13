@@ -1,0 +1,25 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Visualization</title>
+</head>
+<body>
+
+
+        <!-- Display data for Germany -->
+        <h2>Germany Data</h2>
+        <ul>
+            {% for entry in germany_data %}
+                <li>{{ entry.CancerSite }} - {{ entry.AgeGroup0_5 }} - {{ entry.AgeGroup5_10 }} - {{ entry.AgeGroup10_15 }} - {{ entry.AgeGroup15_20 }} - {{ entry.AgeGroup20_25 }} - {{ entry.AgeGroup25_30 }} - {{ entry.AgeGroup30_35 }} - {{ entry.AgeGroup35_40 }} - {{ entry.AgeGroup40_45 }} - {{ entry.AgeGroup45_50 }} - {{ entry.AgeGroup50_55 }} - {{ entry.AgeGroup55_60 }} - {{ entry.AgeGroup60_65 }} - {{ entry.AgeGroup65_70 }} - {{ entry.AgeGroup70_75 }} - {{ entry.AgeGroup75_80 }} - {{ entry.AgeGroup80_85 }}</li>
+            {% endfor %}
+        </ul>
+
+
+
+    <!-- Repeat similar code for other countries -->
+
+</body>
+</html>
