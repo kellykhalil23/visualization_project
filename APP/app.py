@@ -84,13 +84,18 @@ def heatmaps():
     return render_template('heatmaps.html')
 
 
-@app.route('/germany')
-def germany():
-    germany_data = GERMANY.query.all()
+@app.route('/<string:country>')
+def countries(country):
+    if country == "germany" :
+        data = GERMANY.query.all()
 
+    elif country == "canada" :
+        data = CANADA.query.all()
+
+    elif country == "suiss" :
+        data = SUIS.query.all()
     
-
-    # Assuming germany_data is a list of GERMANY model instances
+    # Assuming USA_data is a list of USA model instances
     data_list = [
         {
             "CancerSite": entry.CancerSite,
@@ -113,14 +118,9 @@ def germany():
             "AgeGroup80_85": entry.AgeGroup80_85,
             # Add other age groups as needed
         }
-        for entry in germany_data
+        for entry in data
     ]
-
-    print(data_list)
-    
-    return jsonify(data_list)
-
-
+    return data_list
 
 if __name__ == '__main__':
     app.run(debug=True)
