@@ -62,9 +62,9 @@
     });
 
     // heatmap.js
-    function createHeatmap(data) {
+function createHeatmap(data) {
     d3.select("#heatmap-container").select("svg").remove();
-    var margin = { top: 50, right: 50, bottom: 50, left: 250 };
+    var margin = { top: 100, right: 50, bottom: 50, left: 200 };
     var width = 800 - margin.left - margin.right;
     var height = 600 - margin.top - margin.bottom;
 
@@ -87,7 +87,7 @@
 
     // Create logarithmic color scale
     var colorScale = d3.scaleLog()
-        .range([0, 1])
+        .range(["white", "blue"])  // Adjust the color range as needed
         .domain([1, d3.max(data, function (d) {
             return d3.max(ageGroups, function (ageGroup) {
                 return d[ageGroup];
@@ -115,7 +115,7 @@
         .attr("width", width / ageGroups.length)
         .attr("height", height / cancerSites.length)
         .style("fill", function (d) {
-            return d3.interpolateBlues(colorScale(d.value));
+            return colorScale(d.value);
         });
 
     // Display actual values inside each cell
@@ -169,7 +169,19 @@
             return d;
         });
 
+    
+    // Add title
+    svg.append("text")
+        .attr("x", width / 2)
+        .attr("y", -margin.top / 2)  // Adjusted title position
+        .attr("dy", "1em")
+        .style("text-anchor", "middle")
+        .style("font-size", "20px")
+        .text("Cancer Rates Heatmap")
 }
+
+
+
 
 
 
