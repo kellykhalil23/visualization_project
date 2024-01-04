@@ -32,10 +32,11 @@
 
   <div class="row mt-3">
     <div class="col-md-6">
-      <div id="result"></div>
+      <div id="my_dataviz"></div>
     </div>
   </div>
   <div id="heatmap-container"></div>
+
   <script>
     $(document).ready(function() {
       // Event listener for dropdown change
@@ -53,6 +54,7 @@
             console.log(data)
             // Call the function to create the heatmap
             createHeatmap(data);
+            Heatmap(data);
           },
           error: function(error) {
             console.error('Error:', error);
@@ -177,14 +179,9 @@ function createHeatmap(data) {
         .attr("dy", "1em")
         .style("text-anchor", "middle")
         .style("font-size", "20px")
-        .text("Cancer Rates Heatmap")
+        .text("Cancer Rates Heatmap");
+
 }
-
-
-
-
-
-
 
 
 
