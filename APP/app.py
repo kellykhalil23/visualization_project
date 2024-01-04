@@ -72,7 +72,26 @@ class SUIS(db.Model):
     AgeGroup75_80 = db.Column(db.REAL)
     AgeGroup80_85 = db.Column(db.REAL)
 
-
+class USA(db.Model):
+    __tablename__ = 'USA'
+    CancerSite = db.Column(db.TEXT, primary_key=True)
+    AgeGroup0_5 = db.Column(db.REAL)
+    AgeGroup5_10 = db.Column(db.REAL)
+    AgeGroup10_15 = db.Column(db.REAL)
+    AgeGroup15_20 = db.Column(db.REAL)
+    AgeGroup20_25 = db.Column(db.REAL)
+    AgeGroup25_30 = db.Column(db.REAL)
+    AgeGroup30_35 = db.Column(db.REAL)
+    AgeGroup35_40 = db.Column(db.REAL)
+    AgeGroup40_45 = db.Column(db.REAL)
+    AgeGroup45_50 = db.Column(db.REAL)
+    AgeGroup50_55 = db.Column(db.REAL)
+    AgeGroup55_60 = db.Column(db.REAL)
+    AgeGroup60_65 = db.Column(db.REAL)
+    AgeGroup65_70 = db.Column(db.REAL)
+    AgeGroup70_75 = db.Column(db.REAL)
+    AgeGroup75_80 = db.Column(db.REAL)
+    AgeGroup80_85 = db.Column(db.REAL)
 
 @app.route('/')
 def index():
@@ -95,31 +114,35 @@ def countries(country):
     elif country == "suiss" :
         data = SUIS.query.all()
     
-    # Assuming USA_data is a list of USA model instances
+    elif country == "usa":
+        data = USA.query.all()
+    
+    
     data_list = [
         {
             "CancerSite": entry.CancerSite,
-            "AgeGroup0_5": entry.AgeGroup0_5,
-            "AgeGroup5_10": entry.AgeGroup5_10,
-            "AgeGroup10_15": entry.AgeGroup10_15,
-            "AgeGroup15_20": entry.AgeGroup15_20,
-            "AgeGroup20_25": entry.AgeGroup20_25,
-            "AgeGroup25_30": entry.AgeGroup25_30,
-            "AgeGroup30_35": entry.AgeGroup30_35,
-            "AgeGroup35_40": entry.AgeGroup35_40,
-            "AgeGroup40_45": entry.AgeGroup40_45,
-            "AgeGroup45_50": entry.AgeGroup45_50,
-            "AgeGroup50_55": entry.AgeGroup50_55,
-            "AgeGroup55_60": entry.AgeGroup55_60,
-            "AgeGroup60_65": entry.AgeGroup60_65,
-            "AgeGroup65_70": entry.AgeGroup65_70,
-            "AgeGroup70_75": entry.AgeGroup70_75,
-            "AgeGroup75_80": entry.AgeGroup75_80,
-            "AgeGroup80_85": entry.AgeGroup80_85,
+            "5": entry.AgeGroup0_5,
+            "10": entry.AgeGroup5_10,
+            "15": entry.AgeGroup10_15,
+            "20": entry.AgeGroup15_20,
+            "25": entry.AgeGroup20_25,
+            "30": entry.AgeGroup25_30,
+            "35": entry.AgeGroup30_35,
+            "40": entry.AgeGroup35_40,
+            "45": entry.AgeGroup40_45,
+            "50": entry.AgeGroup45_50,
+            "55": entry.AgeGroup50_55,
+            "60": entry.AgeGroup55_60,
+            "65": entry.AgeGroup60_65,
+            "70": entry.AgeGroup65_70,
+            "75": entry.AgeGroup70_75,
+            "80": entry.AgeGroup75_80,
+            "85": entry.AgeGroup80_85,
             # Add other age groups as needed
         }
         for entry in data
     ]
+    
     return data_list
 
 if __name__ == '__main__':
