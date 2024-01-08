@@ -73,9 +73,12 @@ var margin = { top: 80, right: 25, bottom: 30, left: 250 },
     width = 900 - margin.left - margin.right,
     height = 600 - margin.top - margin.bottom;
 
+// Increase the width of the SVG canvas
+var totalWidth = width + margin.left + margin.right + 250; // Adjust as needed
+
 var svg = d3.select("#my_dataviz")
     .append("svg")
-    .attr("width", width + margin.left + margin.right)
+    .attr("width", totalWidth)
     .attr("height", height + margin.top + margin.bottom)
     .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
@@ -111,11 +114,8 @@ svg.append("g")
 
 
 var myColor = d3.scaleSequential()
-    .interpolator(d3.interpolateYlGnBu)
-    .domain([0.001, 25.00]);
-
-
-
+    .interpolator(d3.interpolateYlOrRd)
+    .domain([0.00, 50.00]);
 
 
 var tooltip = d3.select("#my_dataviz")
@@ -197,6 +197,42 @@ svg.append("text")
     .style("fill", "grey")
     .style("max-width", 400)
     .text("Demographic cancer crude rates for each cancer site and age group from 5 years to 85.");
+
+/// Add legend
+var legend = svg.append("g")
+    .attr("transform", "translate(" + (width + 20) + ",0)");
+
+var legendTitle = legend.append("text")
+    .attr("x", 0)
+    .attr("y", -20)
+    .attr("text-anchor", "left")
+    .style("font-size", "14px")
+    .style("fill", "grey")
+    .text("Color Range");
+
+// Create color scale for legend with a domain from 0 to 50
+var legendColor = d3.scaleSequential()
+    .interpolator(d3.interpolateYlOrRd)
+    .domain([0, 50]);
+
+// Create legend rectangles with colors
+legend.selectAll("rect")
+    .data(legendColor.ticks(6))
+    .enter().append("rect")
+    .attr("height", 20)
+    .attr("width", 20)
+    .attr("y", function (d, i) { return i * 20; })
+    .style("fill", function (d) { return legendColor(d); });
+
+// Create legend labels
+legend.selectAll("text")
+    .data(legendColor.ticks(6))
+    .enter().append("text")
+    .attr("y", function (d, i) { return i * 20 + 14; }) // Adjusted y position for better alignment
+    .attr("x", 30)
+    .style("text-anchor", "start")
+    .text(function (d) { return d.toFixed(2); });
+
 }
 
 
