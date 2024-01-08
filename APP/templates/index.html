@@ -115,7 +115,7 @@ svg.append("g")
 
 var myColor = d3.scaleSequential()
     .interpolator(d3.interpolateYlOrRd)
-    .domain([0.00, 50.00]);
+    .domain([0.00, 100.00]);
 
 
 var tooltip = d3.select("#my_dataviz")
@@ -187,7 +187,7 @@ svg.append("text")
     .attr("y", -50)
     .attr("text-anchor", "left")
     .style("font-size", "22px")
-    .text("Cancer Crude Rates");
+    .text("Cancer Crude Rates per 100,000");
 
 svg.append("text")
     .attr("x", 0)
@@ -213,7 +213,7 @@ var legendTitle = legend.append("text")
 // Create color scale for legend with a domain from 0 to 50
 var legendColor = d3.scaleSequential()
     .interpolator(d3.interpolateYlOrRd)
-    .domain([0, 50]);
+    .domain([0, 100]);
 
 // Create legend rectangles with colors
 legend.selectAll("rect")

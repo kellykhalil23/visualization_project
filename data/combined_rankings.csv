@@ -1,0 +1,70 @@
+AgeGroup,1st,2nd,3rd,4th,5th,Dataset
+5,Leukaemia,Brain and central nervous system,Kidney,Non-Hodgkin lymphoma,Colon,SUIS
+10,Leukaemia,Hodgkin lymphoma,Brain and central nervous system,Non-Hodgkin lymphoma,Ovary,SUIS
+15,Hodgkin lymphoma,Melanoma of skin,Thyroid,Ovary,Leukaemia,SUIS
+20,Melanoma of skin,Hodgkin lymphoma,Thyroid,Non-Hodgkin lymphoma,Brain and central nervous system,SUIS
+25,Melanoma of skin,Thyroid,Breast,Hodgkin lymphoma,Uterus,SUIS
+30,Breast,Melanoma of skin,Thyroid,Uterus,Cervix uteri,SUIS
+35,Breast,Melanoma of skin,Thyroid,Uterus,Cervix uteri,SUIS
+40,Breast,Melanoma of skin,Thyroid,Uterus,Colorectum,SUIS
+45,Breast,Melanoma of skin,Colorectum,Lung,Uterus,SUIS
+50,Breast,Colorectum,Lung,Melanoma of skin,Uterus,SUIS
+55,Breast,Lung,Colorectum,Uterus,Corpus uteri,SUIS
+60,Breast,Lung,Colorectum,Uterus,Corpus uteri,SUIS
+65,Breast,Colorectum,Lung,Uterus,Colon,SUIS
+70,Breast,Colorectum,Lung,Colon,Uterus,SUIS
+75,Breast,Colorectum,Colon,Lung,Uterus,SUIS
+80,Breast,Colorectum,Colon,Lung,Pancreas,SUIS
+85,Breast,Colorectum,Colon,Pancreas,Rectum and anus,SUIS
+5,All sites excl. non-melanoma skin cancer,Leukaemia,Brain and central nervous system,Kidney,Non-Hodgkin lymphoma,USA
+10,All sites excl. non-melanoma skin cancer,Leukaemia,Brain and central nervous system,Hodgkin lymphoma,Thyroid,USA
+15,All sites excl. non-melanoma skin cancer,Hodgkin lymphoma,Thyroid,Leukaemia,Brain and central nervous system,USA
+20,All sites excl. non-melanoma skin cancer,Thyroid,Melanoma of skin,Hodgkin lymphoma,Uterus,USA
+25,All sites excl. non-melanoma skin cancer,Thyroid,Melanoma of skin,Breast,Uterus,USA
+30,All sites excl. non-melanoma skin cancer,Breast,Uterus,Thyroid,Cervix uteri,USA
+35,All sites excl. non-melanoma skin cancer,Breast,Uterus,Thyroid,Cervix uteri,USA
+40,All sites excl. non-melanoma skin cancer,Breast,Uterus,Thyroid,Cervix uteri,USA
+45,All sites excl. non-melanoma skin cancer,Breast,Uterus,Colorectum,Corpus uteri,USA
+50,All sites excl. non-melanoma skin cancer,Breast,Uterus,Colorectum,Lung,USA
+55,All sites excl. non-melanoma skin cancer,Breast,Uterus,Lung,Corpus uteri,USA
+60,All sites excl. non-melanoma skin cancer,Breast,Lung,Uterus,Colorectum,USA
+65,All sites excl. non-melanoma skin cancer,Breast,Lung,Colorectum,Uterus,USA
+70,All sites excl. non-melanoma skin cancer,Breast,Lung,Colorectum,Colon,USA
+75,All sites excl. non-melanoma skin cancer,Breast,Colorectum,Lung,Colon,USA
+80,All sites excl. non-melanoma skin cancer,Breast,Colorectum,Colon,Lung,USA
+85,All sites excl. non-melanoma skin cancer,Colorectum,Breast,Colon,Lung,USA
+5,Leukaemia,Brain and central nervous system,Kidney,Non-Hodgkin lymphoma,Colon,CANADA
+10,Leukaemia,Hodgkin lymphoma,Brain and central nervous system,Non-Hodgkin lymphoma,Ovary,CANADA
+15,Hodgkin lymphoma,Melanoma of skin,Thyroid,Ovary,Leukaemia,CANADA
+20,Melanoma of skin,Hodgkin lymphoma,Thyroid,Non-Hodgkin lymphoma,Brain and central nervous system,CANADA
+25,Melanoma of skin,Thyroid,Breast,Hodgkin lymphoma,Uterus,CANADA
+30,Breast,Melanoma of skin,Thyroid,Uterus,Cervix uteri,CANADA
+35,Breast,Melanoma of skin,Thyroid,Uterus,Cervix uteri,CANADA
+40,Breast,Melanoma of skin,Thyroid,Uterus,Colorectum,CANADA
+45,Breast,Melanoma of skin,Colorectum,Lung,Uterus,CANADA
+50,Breast,Colorectum,Lung,Melanoma of skin,Uterus,CANADA
+55,Breast,Lung,Colorectum,Uterus,Corpus uteri,CANADA
+60,Breast,Lung,Colorectum,Uterus,Corpus uteri,CANADA
+65,Breast,Colorectum,Lung,Uterus,Colon,CANADA
+70,Breast,Colorectum,Lung,Colon,Uterus,CANADA
+75,Breast,Colorectum,Colon,Lung,Uterus,CANADA
+80,Breast,Colorectum,Colon,Lung,Pancreas,CANADA
+85,Breast,Colorectum,Colon,Pancreas,Rectum and anus,CANADA
+5,All sites excl. non-melanoma skin cancer,Leukaemia,Brain and central nervous system,Kidney,Thyroid,Germany
+10,All sites excl. non-melanoma skin cancer,Leukaemia,Brain and central nervous system,Hodgkin lymphoma,Thyroid,Germany
+15,All sites excl. non-melanoma skin cancer,Hodgkin lymphoma,Brain and central nervous system,Leukaemia,Non-Hodgkin lymphoma,Germany
+20,All sites excl. non-melanoma skin cancer,Melanoma of skin,Hodgkin lymphoma,Leukaemia,Non-Hodgkin lymphoma,Germany
+25,All sites excl. non-melanoma skin cancer,Melanoma of skin,Breast,Uterus,Cervix uteri,Germany
+30,All sites excl. non-melanoma skin cancer,Breast,Uterus,Cervix uteri,Melanoma of skin,Germany
+35,All sites excl. non-melanoma skin cancer,Breast,Uterus,Cervix uteri,Melanoma of skin,Germany
+40,All sites excl. non-melanoma skin cancer,Breast,Uterus,Cervix uteri,Melanoma of skin,Germany
+45,All sites excl. non-melanoma skin cancer,Breast,Uterus,Lung,Colorectum,Germany
+50,All sites excl. non-melanoma skin cancer,Breast,Lung,Colorectum,Uterus,Germany
+55,All sites excl. non-melanoma skin cancer,Breast,Lung,Colorectum,Uterus,Germany
+60,All sites excl. non-melanoma skin cancer,Breast,Colorectum,Lung,Uterus,Germany
+65,All sites excl. non-melanoma skin cancer,Breast,Colorectum,Lung,Colon,Germany
+70,All sites excl. non-melanoma skin cancer,Breast,Colorectum,Colon,Lung,Germany
+75,All sites excl. non-melanoma skin cancer,Breast,Colorectum,Colon,Lung,Germany
+80,All sites excl. non-melanoma skin cancer,Colorectum,Breast,Colon,Lung,Germany
+85,All sites excl. non-melanoma skin cancer,Colorectum,Breast,Colon,Rectum and anus,Germany
+Unnamed: 18,All sites excl. non-melanoma skin cancer,Lip oral cavity and pharynx,Oesophagus,Stomach,Colorectum,Germany
