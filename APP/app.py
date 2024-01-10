@@ -142,7 +142,7 @@ def countries(country):
         }
         for entry in data
     ]
-
+    
     return data_list
 
 if __name__ == '__main__':
