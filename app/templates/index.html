@@ -28,11 +28,8 @@
         <div class="col-md-6">
             <label for="cancerData" class="form-label">Select the Cancer Data:</label>
             <select id="cancerData" class="form-select">
-            <option disabled selected>Select country</option>
-            <option value="germany">Germany</option>
-            <option value="suiss">Switzerland</option>
-            <option value="canada">Canada</option>
-            <option value="usa">USA</option>
+                <option disabled selected>Select country</option>
+                <!-- Options will be dynamically added here -->
             </select>
 
             <div id="my_dataviz" class="graph-container"></div>
@@ -83,6 +80,23 @@
 
   <script>
     $(document).ready(function() {
+      fetch('/get_tables')
+        .then(response => response.json())
+        .then(data => {
+            const dropdown = document.getElementById('cancerData');
+
+            // Clear existing options
+            dropdown.innerHTML = '<option disabled selected>Select country</option>';
+
+            // Add new options based on the tables
+            data.tables.forEach(table => {
+                const option = document.createElement('option');
+                option.value = table;
+                option.textContent = table;
+                dropdown.appendChild(option);
+            });
+        })
+        .catch(error => console.error('Error fetching tables:', error));
       // Event listener for dropdown change
       $('#cancerData').on('change', function() {
         // Get the selected value
