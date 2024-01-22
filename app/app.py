@@ -1,11 +1,19 @@
 from flask import Flask, render_template, request, jsonify
 from flask_sqlalchemy import SQLAlchemy
-import sqlite3  
+import sqlite3
+from apiflask import APIFlask
+import os
 
-app = Flask(__name__)
+app = APIFlask(__name__, title="Demographic Cancer Crude Rates")
+
+# Get the base directory of the application
+base_dir = os.path.abspath(os.path.dirname(__file__))
+
+# Construct the path to the database file (assuming db is outside the app folder)
+db_path = os.path.join(base_dir, "..", "db", "database.db")
 
 # Configure the SQLite database URI. Change the database URL as needed.
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////root/dataviz/dataviz_project/db/database.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = f"sqlite:///{db_path}"
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
