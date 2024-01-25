@@ -14,9 +14,11 @@ db_path = os.path.join(base_dir, "..", "db", "database.db")
 
 # Configure the SQLite database URI. Change the database URL as needed.
 app.config['SQLALCHEMY_DATABASE_URI'] = f"sqlite:///{db_path}"
+
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
+
 
 class GERMANY(db.Model):
     __tablename__ = 'GERMANY'
@@ -102,6 +104,12 @@ class USA(db.Model):
     AgeGroup75_80 = db.Column(db.REAL)
     AgeGroup80_85 = db.Column(db.REAL)
 
+@app.errorhandler(500)
+def internal_server_error(error):
+    response = jsonify({'error': 'Internal Server Error'})
+    response.status_code = 500
+    return response
+
 
 @app.route('/create_table', methods=['POST'])
 def create_cancer_table():
@@ -113,7 +121,7 @@ def create_cancer_table():
         return jsonify({"error": "Invalid input format"}), 400
 
     # Connect to SQLite database
-    conn = sqlite3.connect('/root/dataviz/dataviz_project/db/database.db')
+    conn = sqlite3.connect(db_path)
     cursor = conn.cursor()
 
     try:
@@ -211,7 +219,7 @@ def index():
 @app.route('/get_tables', methods=['GET'])
 def get_tables():
     # Connect to SQLite database
-    conn = sqlite3.connect('/root/dataviz/dataviz_project/db/database.db')
+    conn = sqlite3.connect(db_path)
     cursor = conn.cursor()
 
     # Get the list of tables
@@ -247,7 +255,7 @@ def countries(country):
     
     else:
         # Connect to SQLite database
-        conn = sqlite3.connect('/root/dataviz/dataviz_project/db/database.db')
+        conn = sqlite3.connect(db_path)
         cursor = conn.cursor()  
         data = cursor.execute(f'''
             SELECT * FROM "{country}"
