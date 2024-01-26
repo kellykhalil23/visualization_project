@@ -15,3 +15,6 @@
 
  To test posting data and visualizing it with the app, just run the file test_post.py or use the standard data format JSON and post to the route: /create_table
  After posting the data about another country the new country will be showed in the countries dropdown on the frontend and when selected it will display the relevant data. Feel free to change the country name or data but the format should always be JSON.
+
+![Alt Text](frontend.png)
+
