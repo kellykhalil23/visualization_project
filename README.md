@@ -13,4 +13,5 @@
   can utilize the app to understand the prevalence of various cancers in different age groups among females. This information can guide them in recommending appropriate screening and early detection measures, such as Pap smears for cervical cancer or mammograms for breast cancer.
 
 
- To test poating data and visualizing it with the app, just run the file test_post.py or use the standard data format JSON and post to the route 
+ To test poating data and visualizing it with the app, just run the file test_post.py or use the standard data format JSON and post to the route: /create_table
+ After posting the data about another country the new country will be showed in the countries dropdown on the frontend and when selected it will display the relevant data. Feel free to change the country name or data but the format should always be JSON.
